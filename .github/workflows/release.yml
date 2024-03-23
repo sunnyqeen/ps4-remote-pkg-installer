@@ -25,6 +25,11 @@ jobs:
           ${{ runner.os }}-maven-
     - name: Build with Maven
       run: mvn -B package --file pom.xml
+    - name: Delete release
+      id: delete elease
+      uses: liudonghua123/delete-release-action@v1
+      with:
+        release_name: ${{ github.ref }}
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
