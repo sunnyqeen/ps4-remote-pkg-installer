@@ -27,11 +27,12 @@ jobs:
       run: mvn -B package --file pom.xml
     - name: Delete release
       id: delete_release
-      uses: liudonghua123/delete-release-action@v1
+      uses: dev-drprasad/delete-tag-and-release@v1.0
       env:
         GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
-        release_name: ${{ github.ref_name }}
+        tag_name: ${{ github.ref_name }}
+        github_token: ${{ secrets.GITHUB_TOKEN }}
     - name: Create Release
       id: create_release
       uses: actions/create-release@v1
