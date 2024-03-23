@@ -20,7 +20,6 @@
         <!--Dependencies versions-->
         <ps4-error-codes.version>0.0.1</ps4-error-codes.version>
         <ps4-remote-control.version>0.0.2</ps4-remote-control.version>
-        <jcef-loader.version>0.0.1</jcef-loader.version>
         <junrar.version>7.4.0</junrar.version>
 
         <!--Swing-->
