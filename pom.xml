@@ -85,11 +85,6 @@
             <version>${ps4-remote-control.version}</version>
         </dependency>
         <dependency>
-            <groupId>com.github.BenjaminFaal</groupId>
-            <artifactId>jcef-loader</artifactId>
-            <version>${jcef-loader.version}</version>
-        </dependency>
-        <dependency>
             <groupId>com.github.junrar</groupId>
             <artifactId>junrar</artifactId>
             <version>${junrar.version}</version>
