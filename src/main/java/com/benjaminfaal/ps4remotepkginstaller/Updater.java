@@ -1,6 +1,6 @@
 package com.benjaminfaal.ps4remotepkginstaller;
 
-import com.jogamp.common.util.VersionNumber;
+//import com.jogamp.common.util.VersionNumber;
 import lombok.extern.apachecommons.CommonsLog;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.scheduling.annotation.Async;
@@ -27,7 +27,7 @@ public class Updater {
 
     @Async
     void checkForUpdate() {
-        try {
+        /*try {
             Map<String, Object> latestRelease = restTemplate.getForObject(LATEST_RELEASE_URL, Map.class);
             String latestTagName = (String) latestRelease.get("tag_name");
             String changelog = (String) latestRelease.get("body");
@@ -45,7 +45,7 @@ public class Updater {
             }
         } catch (Exception e) {
             log.error("Error checking for update: ", e);
-        }
+        }*/
     }
 
 }
