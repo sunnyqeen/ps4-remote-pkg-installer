@@ -931,8 +931,8 @@ public class MainUI extends JFrame {
             }
             return false;
         } else {
-            JOptionPane.showMessageDialog(this, "Remote PKG Installer is not running in the foreground. Please start it on the PS4.", "Start Remote PKG Installer", JOptionPane.INFORMATION_MESSAGE);
-            return false;
+            //JOptionPane.showMessageDialog(this, "Remote PKG Installer is not running in the foreground. Please start it on the PS4.", "Start Remote PKG Installer", JOptionPane.INFORMATION_MESSAGE);
+            return true;
         }
     }
 
