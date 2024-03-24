@@ -40,5 +40,5 @@ jobs:
       uses: ncipollo/release-action@v1
       with:
         allowUpdates: true
-        artifacts: target/*.jar
+        artifacts: target/ps4-remote-pkg-installer.${{ github.ref_name }}.jar
         replacesArtifacts: true
