@@ -40,6 +40,8 @@ public class Settings {
     public static void load(Properties properties) throws IOException {
         if (PROPERTIES_FILE.exists()) {
             new DefaultPropertiesPersister().load(properties, new FileReader(PROPERTIES_FILE));
+        } else {
+            PROPERTIES_FILE.getParentFile().mkdirs();
         }
     }
 
