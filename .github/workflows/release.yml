@@ -33,21 +33,12 @@ jobs:
       with:
         tag_name: ${{ github.ref_name }}
         github_token: ${{ secrets.GITHUB_TOKEN }}
+    - name: Rename file 
+      run: mv target/ps4-remote-pkg-installer.jar target/ps4-remote-pkg-installer.${{ github.ref_name }}.jar
     - name: Create Release
       id: create_release
-      uses: actions/create-release@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      uses: ncipollo/release-action@v1
       with:
-        tag_name: ${{ github.ref_name }}
-        release_name: ${{ github.ref_name }}
-    - name: Upload Release Asset
-      id: upload-release-asset
-      uses: actions/upload-release-asset@v1
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-      with:
-        upload_url: ${{ steps.create_release.outputs.upload_url }}
-        asset_path: target/ps4-remote-pkg-installer.jar
-        asset_name: ps4-remote-pkg-installer-${{ github.ref }}.jar
-        asset_content_type: application/java-archive
+        allowUpdates: true
+        artifacts: target/*.jar
+        replacesArtifacts: true
