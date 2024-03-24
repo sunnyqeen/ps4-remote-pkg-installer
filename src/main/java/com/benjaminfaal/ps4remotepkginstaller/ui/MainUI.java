@@ -937,7 +937,9 @@ public class MainUI extends JFrame {
     }
 
     private boolean startRemotePKGInstaller() throws IOException, TimeoutException {
-        if (connection != null && connection.startTitle("FLTZ00003").isSuccess()) {
+        if (connection != null && (connection.startTitle("FLTZ00003").isSuccess() || 
+                                   connection.startTitle("KPBR01111").isSuccess() ||
+                                   connection.startTitle("RPIB00001").isSuccess())) {
             long started = System.currentTimeMillis();
             while (System.currentTimeMillis() - started < 3000 && !isRemotePKGInstallerRunning()) {
             }
@@ -954,7 +956,7 @@ public class MainUI extends JFrame {
         if (cmbDiscoveredConsoles.getSelectedItem() == null) {
             return false;
         }
-        try {
+        /*try {
             Console selectedConsole = (Console) cmbDiscoveredConsoles.getSelectedItem();
             Console console = PS4DDP.discover(selectedConsole.getHost(), 1000);
             return Objects.equals(console.get("running-app-titleid"), "FLTZ00003")
@@ -962,7 +964,7 @@ public class MainUI extends JFrame {
                     Objects.equals(console.get("running-app-name"), "Remote PKG installer");
         } catch (Exception e) {
             log.error("Error checking whether Remote PKG Installer is running by DDP", e);
-        }
+        }*/
         try {
             return remotePKGInstallerService.isRunning();
         } catch (Exception e) {
